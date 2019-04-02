@@ -1,0 +1,65 @@
+#include <iostream>
+#include<vector>
+#define pb push_back
+using namespace std;
+
+int in,on;
+string uso;
+string a, b;
+
+bool isValid(int n){
+	vector<char> pilha;
+	string ax=a;
+	for(int i=0;i<n;i++){
+		if(uso[i]=='i'){
+			pilha.pb(ax[0]);
+			ax.erase(ax.begin());
+		}
+		else{
+			ax+=pilha.back();
+			pilha.pop_back();
+		}
+	}
+	if(ax==b)return true;
+	return false;
+}
+
+void backtracking(int n, int k){
+	if(k == n && isValid(n)){
+		for(int i=0;i<n;i++){
+			if(i) cout << " ";
+			cout << uso[i];
+		}
+		cout << endl;
+	}
+	else{
+	    if(in<n/2){
+	        uso[k] = 'i';
+	        in++;
+	        backtracking(n, k+1);
+	        in--;
+	    }
+		if(on<n/2 && on<in){
+	        uso[k] = 'o';
+	        on++;
+	        backtracking(n, k+1);
+	        on--;
+	    }
+	}
+}
+
+int main(){
+	int n;
+	while(cin >> a){
+		cin >> b;
+		printf("[\n");
+		n=a.size()*2;
+		if(n!=b.size()*2){
+			printf("]\n");
+			continue;
+		}
+		uso.resize(n);
+		backtracking(n, 0);
+		printf("]\n");
+	}
+}
