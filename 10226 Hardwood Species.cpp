@@ -15,15 +15,15 @@ int main(){
 	while(t--){
 		if(casos++) printf("\n");
 		map <string, long double> mapa;
-		long double cont = 0.0000;
+		long double cont = 0;
 		while(getline(cin,line) && line!=""){
-			mapa[line] += 1.0000;
-			cont += 1.0000;
+			mapa[line] += 1;
+			cont += 1;
 		}
 		for(auto it=mapa.begin();it!=mapa.end();it++){
 			cout << it->first << " ";
 			long double num = (double) it->second;
-			printf("%.4llf\n", ((double)(100.0000*num)/cont));
+			printf("%.4llf\n", ((double)(100*num)/cont));
 		}
 	}
 	return 0;
