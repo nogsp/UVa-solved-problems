@@ -32,7 +32,7 @@ int main(void){
 						pilhas[i-3].pb(aux);
 						if(pilhas[i].empty()) pilhas.erase(pilhas.begin()+i);
 						cont++;
-						break;//lembrar de tirarrrrrrrrr
+						break;
 					}
 					else if(i>=1&&isOK(pilhas[i-1].back(),pilhas[i].back())){
 						pair<char,char> aux=pilhas[i].back();
@@ -40,7 +40,7 @@ int main(void){
 						pilhas[i-1].pb(aux);
 						if(pilhas[i].empty()) pilhas.erase(pilhas.begin()+i);
 						cont++;
-						break; //lembrar de tirarrrrrrrrr
+						break;
 					}
 				}
 				if(!cont) break;
